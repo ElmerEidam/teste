@@ -47,6 +47,21 @@ Se temos um arquivo que queremos que seja ignorado, por exemplo, basta o incluir
 
 Devemos gerar um commit sempre que a nossa base de código está em um estado do qual gostaríamos de nos lembrar. Nunca devemos ter commits de códigos que não funcionam, mas também não é interessante deixar para commitar apenas no final de uma feature.
 
-Para criarmos um repositório do Git que somente armazenará as alterações, ou seja, não o acessaremos para editar arquivos, por exemplo, usaremos "git init --bare", cujo parâmetro indica que este repositório é puro, que contém apenas as alterações dos arquivos, e não uma cópia física de cada um dos arquivos.
+Para criarmos um repositório do Git que somente armazenará as alterações, ou seja, não o acessaremos para editar arquivos, por exemplo, usaremos "git init --bare", cujo parâmetro indica que este repositório é puro, que contém apenas as alterações dos arquivos, e não uma cópia física de cada um dos arquivos. Com este comando nós criamos um repositório que não terá a working tree, ou seja, não conterá uma cópia dos nossos arquivos.
 
+Exemplo:
+Criamos a pasta do servidor local em: /home/elmer/Documents/git-e-github/Servidor/
+Após acessarmos esta pasta, rodamos o comando "git init --bare"
+Voltamos para o repositório onde fazemos as alterações: /home/elmer/Documents/git-e-github/Elmer/
+Adicionamos o servidor como um repositório remoto com o nome 'local': git remote add local Documents/git-e-github/Servidor/
+
+Para vermos qual o repositório remoto que estamos trabalhando utilizamos o comando: "git remote" e se quisermos garantir que o endereço esteja correto, poderemos executar "git remote -v", que faz com que o endereço de local seja exibido.
+
+Os dados serão buscados (fetch) no caminho informado e enviados para este mesmo caminho (push).
+
+local	Documents/git-e-github/Servidor/ (fetch)
+local	Documents/git-e-github/Servidor/ (push)
+
+Para clonarmos um repositório para outro lugar utilizamos o comando "git clone".
+Como por exemplo, executando o seguinte comando dentro de outro diretório: git clone /home/elmer/Documents/git-e-github/Servidor
 
