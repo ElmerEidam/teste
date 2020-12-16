@@ -19,7 +19,6 @@ Para salvar as alterações, utilizamos o comando "git commit -m", em que o par�
 
 Exemplo: git commit -m "Criando arquivo index.html com lista de cursos"
 
-
 HEAD: Estado atual do nosso código, ou seja, onde o Git nos colocou
 
 Working tree: Local onde os arquivos realmente estão sendo armazenados e editados
@@ -47,6 +46,8 @@ Se temos um arquivo que queremos que seja ignorado, por exemplo, basta o incluir
 
 Devemos gerar um commit sempre que a nossa base de código está em um estado do qual gostaríamos de nos lembrar. Nunca devemos ter commits de códigos que não funcionam, mas também não é interessante deixar para commitar apenas no final de uma feature.
 
+Repositório remoto:
+
 Para criarmos um repositório do Git que somente armazenará as alterações, ou seja, não o acessaremos para editar arquivos, por exemplo, usaremos "git init --bare", cujo parâmetro indica que este repositório é puro, que contém apenas as alterações dos arquivos, e não uma cópia física de cada um dos arquivos. Com este comando nós criamos um repositório que não terá a working tree, ou seja, não conterá uma cópia dos nossos arquivos.
 
 Exemplo:
@@ -70,3 +71,11 @@ Para enviarmos os arquivos de um branch, neste caso 'main', para o repositório 
 Para copiarmos estes arquivos, executamos "git pull nomeDoRepoRemoto" dentro do diretório que colaremos os arquivos.
 
 Para trocarmos o nome do repositório remoto, executamos "git remote rename origin local", onde origin é o nome atual e local é o novo nome.
+
+Branches:
+
+Branches ("ramos") são utilizados para desenvolver funcionalidades isoladas umas das outras. A branch master é a branch "padrão" quando você cria um repositório.
+
+É interessante separar o desenvolvimento de funcionalidades em branches diferentes, para que as mudanças no código para uma não influencie no funcionamento de outra.
+
+Estas ramificações do trabalho são uma das formas de com que podemos trabalhar, em relação aos branches do Git. Por padrão, se executarmos "git branch" no Git Bash, teremos um único branch, master, e é exatamente isto que o Git Bash nos mostra ao fim da linha. No entanto, poderemos criar outros, por exemplo, utilizaremos o comando "git branch nomeBranch", embora tenhamos que mudar para ela manualmente, com "git checkout nomeBranch".
