@@ -65,3 +65,8 @@ local	Documents/git-e-github/Servidor/ (push)
 Para clonarmos um repositório para outro lugar utilizamos o comando "git clone".
 Como por exemplo, executando o seguinte comando dentro de outro diretório: git clone /home/elmer/Documents/git-e-github/Servidor
 
+Para enviarmos os arquivos de um branch, neste caso 'main', para o repositório 'Servidor local', utilizamos o comando: "git push local main"
+
+Para copiarmos estes arquivos, executamos "git pull nomeDoRepoRemoto" dentro do diretório que colaremos os arquivos.
+
+Para trocarmos o nome do repositório remoto, executamos "git remote rename origin local", onde origin é o nome atual e local é o novo nome.
