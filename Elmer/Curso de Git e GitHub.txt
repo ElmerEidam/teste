@@ -79,3 +79,6 @@ Branches ("ramos") são utilizados para desenvolver funcionalidades isoladas uma
 É interessante separar o desenvolvimento de funcionalidades em branches diferentes, para que as mudanças no código para uma não influencie no funcionamento de outra.
 
 Estas ramificações do trabalho são uma das formas de com que podemos trabalhar, em relação aos branches do Git. Por padrão, se executarmos "git branch" no Git Bash, teremos um único branch, master, e é exatamente isto que o Git Bash nos mostra ao fim da linha. No entanto, poderemos criar outros, por exemplo, utilizaremos o comando "git branch nomeBranch", embora tenhamos que mudar para ela manualmente, com "git checkout nomeBranch".
+
+Utilizando o comando "git merge nomeBranch", fará com que o Git automaticamente crie um commit com o branch atual e todo o conteúdo de nossa branch nomeBranch.
+
