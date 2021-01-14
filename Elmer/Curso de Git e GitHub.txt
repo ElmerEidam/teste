@@ -82,3 +82,6 @@ Estas ramificações do trabalho são uma das formas de com que podemos trabalha
 
 Utilizando o comando "git merge nomeBranch", fará com que o Git automaticamente crie um commit com o branch atual e todo o conteúdo de nossa branch nomeBranch.
 
+Para trazer o trabalho de outro branch e unir com o branch atual, executamos o comando "git rebase titulo" dentro do branch master, então o Git pegará os commits na branch titulo, atualizando master, que possui todos os commits contidos em titulo, além do commit que havia nele mesmo. Deste modo, geramos uma única linha, sem confusões.
+
+A diferença entre os comandos rebase e merge é: O merge junta os trabalhos e gera um merge commit. O rebase aplica os commits de outra branch na branch atual.
