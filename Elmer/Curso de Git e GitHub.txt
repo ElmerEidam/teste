@@ -5,7 +5,6 @@ Antes de qualquer interação com o git, você precisa informar quem é você pa
 git config --local user.name "Seu nome aqui"
 git config --local user.email "seu@email.aqui"
 
-
 O comando "git init" inicializa um repositório no diretório em que o comando for executado.
 
 "git status" para mostrar o estado do nosso repositório.
@@ -46,6 +45,7 @@ Se temos um arquivo que queremos que seja ignorado, por exemplo, basta o incluir
 
 Devemos gerar um commit sempre que a nossa base de código está em um estado do qual gostaríamos de nos lembrar. Nunca devemos ter commits de códigos que não funcionam, mas também não é interessante deixar para commitar apenas no final de uma feature.
 
+
 Repositório remoto:
 
 Para criarmos um repositório do Git que somente armazenará as alterações, ou seja, não o acessaremos para editar arquivos, por exemplo, usaremos "git init --bare", cujo parâmetro indica que este repositório é puro, que contém apenas as alterações dos arquivos, e não uma cópia física de cada um dos arquivos. Com este comando nós criamos um repositório que não terá a working tree, ou seja, não conterá uma cópia dos nossos arquivos.
@@ -72,6 +72,7 @@ Para copiarmos estes arquivos, executamos "git pull nomeDoRepoRemoto" dentro do 
 
 Para trocarmos o nome do repositório remoto, executamos "git remote rename origin local", onde origin é o nome atual e local é o novo nome.
 
+
 Branches:
 
 Branches ("ramos") são utilizados para desenvolver funcionalidades isoladas umas das outras. A branch master é a branch "padrão" quando você cria um repositório.
@@ -85,3 +86,14 @@ Utilizando o comando "git merge nomeBranch", fará com que o Git automaticamente
 Para trazer o trabalho de outro branch e unir com o branch atual, executamos o comando "git rebase titulo" dentro do branch master, então o Git pegará os commits na branch titulo, atualizando master, que possui todos os commits contidos em titulo, além do commit que havia nele mesmo. Deste modo, geramos uma única linha, sem confusões.
 
 A diferença entre os comandos rebase e merge é: O merge junta os trabalhos e gera um merge commit. O rebase aplica os commits de outra branch na branch atual.
+
+
+Reverter alterações:
+
+Antes de adicionar o arquivo para ser commitado, podemos utilizar o comando "git checkout -- nomeDoArquivo", pois, git checkout , serve para navegarmos em estados do repositório, seja por meio de branches ou desfazendo modificações no arquivo.
+
+Caso o arquivo já tenha sido adicionado para ser commitado através do comando git add, poderemos utilizar "git reset HEAD" seguido do nome do arquivo a ser desmarcado como algo que precisa passar pelo commit.
+
+No pior dos casos, após commitar um arquivo, revertemos utilizando o comando "git revert numeroHashDoCommit".
+
+Resumindo, com o git checkout nós desfazemos uma alteração que ainda não foi adicionada ao index ou stage, ou seja, antes do git add. Depois de adicionar com git add, para desfazer uma alteração, precisamos tirá-la deste estado, com git reset. Agora, se já realizamos o commit, o comando git revert pode nos salvar.
