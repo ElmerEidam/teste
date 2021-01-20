@@ -29,6 +29,8 @@ https://git-scm.com/book/pt-br/v2/Fundamentos-de-Git-Gravando-Altera%C3%A7%C3%B5
 
 "Hash do commit", uma identificação única de cada commit, isto é, não existem dois commits com o mesmo hash.
 
+Git Logs:
+
 Para verificar o histórico de alterações, cada mensagem de commits feitos, o andamento do nosso projeto utilizamos o comando "git log".
 
 Para visualizar todos os commits em uma única linha, utilizar o comando "git log --oneline".
@@ -97,3 +99,21 @@ Caso o arquivo já tenha sido adicionado para ser commitado através do comando 
 No pior dos casos, após commitar um arquivo, revertemos utilizando o comando "git revert numeroHashDoCommit".
 
 Resumindo, com o git checkout nós desfazemos uma alteração que ainda não foi adicionada ao index ou stage, ou seja, antes do git add. Depois de adicionar com git add, para desfazer uma alteração, precisamos tirá-la deste estado, com git reset. Agora, se já realizamos o commit, o comando git revert pode nos salvar.
+
+A descrição do comando "git checkout" é: "Atualizar os arquivos na working tree para ficarem na versão especificada.
+Basicamente, podemos deixar o nosso código no estado do último commit de uma branch, de um commit específico, ou mesmo tags.
+
+Git Stash:
+No Git, existe um conceito denominado Stash e por meio de "git stash" conseguimos salvar todas as alterações para um local temporário sem necessidade de um commit ou de se gerar um commit para isto.
+Se, após git stash executarmos "git stash list", teremos uma lista de tudo que estiver salvo nestas condições.
+Há duas opções para trazer os dados armazenados pelo git stash ao diretório de trabalho: executarmos "git stash list", e em seguida passarmos o número da stash em "git stash apply 0", porém, as alterações porém elas continuarão na stash. Para a remoção, poderemos usar "git stash drop".
+No caso de querermos fazer ambas as ações ao mesmo tempo, ou seja, pegar a última alteração adicionada à stash, e já removê-la de lá, utilizaremos git stash pop que, ao ser executado, realiza o merge com as modificações que já temos e aplica aquelas que já estavam salvas lá.
+
+Gerando entregas:
+O comando "git diff" é utilizado para exibir as diferenças em cada commit, para garantir que nenhum bug foi adicionado no projeto, e entender o que de fato cada commit gerou no código.
+Para entendermos as diferenças entre dois commits, precisaremos informar quais são, no caso, "git diff ea539b3 até (..) 6ca12ac".
+
+Para criarmos uma tag no repositório, devemos executar o comando "git tag -a", seguido do nome que damos a ela, "v0.1.0". Ou seja, "git tag -a v0.1.0".
+Além disto, poderemos incluir uma mensagem. O comando completo ficaria, então: git tag -a v0.1.0 -m "Lançando a primeira versão (BETA) da aplicação de cursos"
+Assim geramos uma tag, um marco na nossa aplicação. E se executarmos "git tag", são exibidos todos estes marcos disponíveis.
+Para enviarmos a tag ao servidor utilizamos o comando "git push local v0.1.0".
